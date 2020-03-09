@@ -11,12 +11,15 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faCheckSquare, faCoffee);
 
 const App = () => {
-  const [currentNum, updateNum] = useState(100);
+  const [currentNum, updateNum] = useState(0);
 
   return (
     <>
       <h1>{currentNum}</h1>
-      <SearchBar placeholderText="Input number here" />
+      <SearchBar
+        placeholderText="Input number here"
+        handleInput={event => updateNum(event)}
+      />
       <Button
         btnText="Increment"
         handleClick={() => updateNum(currentNum + 1)}
